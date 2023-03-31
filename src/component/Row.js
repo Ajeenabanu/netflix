@@ -1,0 +1,35 @@
+import React, { useEffect, useState } from 'react'
+import instance from '../instance'
+import './row.css'
+
+function Row({isPoster , tittle, fetchUrl }) {
+    const [movies, setmovie] = useState([])
+    const base_url = "https://image.tmdb.org/t/p/original/";
+
+    const fetchData = async () => {
+        const res = await instance.get(fetchUrl)
+        setmovie(res.data.results);
+    }
+    useEffect(() => {
+            fetchData()
+        }, [])
+    console.log(movies);
+    return (
+        
+        <div className='row'>
+       
+        <h1>{tittle}</h1>
+        <div className='movies-row'>
+        {
+            movies.map((movie)=>(
+                <img className={`img ${isPoster && 'img_poster'}` }
+                src={`${base_url}${isPoster?movie.poster_path:movie.backdrop_path}`} />
+            )
+)
+        }
+        </div>
+        </div>
+    )
+}
+
+export default Row

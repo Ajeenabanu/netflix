@@ -1,0 +1,25 @@
+.movies-row{
+    display: flex;
+    overflow-x: scroll;
+
+}
+.img{
+    max-height: 150px;
+    width: 100%;
+    object-fit: contain;
+    margin-left: 10px;
+    transition: transform 450ms;
+}
+.img:hover{
+    transform: scale(1.06);
+}
+.row{
+    margin-left: 10px;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+.img_poster{
+    max-height: 270px;
+}
