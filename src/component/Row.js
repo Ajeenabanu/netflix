@@ -22,7 +22,7 @@ function Row({isPoster , tittle, fetchUrl }) {
         <div className='movies-row'>
         {
             movies.map((movie)=>(
-                <img className={`img ${isPoster && 'img_poster'}` }
+                <img alt="" className={`img ${isPoster && 'img_poster'}` }
                 src={`${base_url}${isPoster?movie.poster_path:movie.backdrop_path}`} />
             )
 )
