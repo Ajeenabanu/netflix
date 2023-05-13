@@ -2,20 +2,20 @@ import React,{useEffect,useState} from 'react';
 import './banner.css';
 import instance from '../instance';
 import requests from '../Request';
-import Carousel from 'react-bootstrap/Carousel';
 
 
 function Banner() {
     const [movie,setmovie]=useState({})
     const base_url = "https://image.tmdb.org/t/p/original/";
 
-    const fetchData = async () => {
-        const res = await instance.get(requests.fetchNetflixOriginals)
-        setmovie(res.data.results[Math.floor(Math.random()*res.data.results.length)]);
-    }
+    
     console.log(movie);
     useEffect(() => {
-       fetchData()
+        const fetchData = async () => {
+            const res = await instance.get(requests.fetchNetflixOriginals)
+            setmovie(res.data.results[Math.floor(Math.random()*res.data.results.length)]);
+        }
+        fetchData()
     }, [])
     
     return (
