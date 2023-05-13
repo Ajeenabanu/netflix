@@ -6,12 +6,13 @@ function Row({isPoster , tittle, fetchUrl }) {
     const [movies, setmovie] = useState([])
     const base_url = "https://image.tmdb.org/t/p/original/";
 
-        
-    
+    const fetchData = async () => {
+        const res = await instance.get(fetchUrl)
+        setmovie(res.data.results);
+    }
     useEffect(() => {
-        const res =  instance.get(fetchUrl)
-        setmovie(res.data.results);        
-    },[fetchUrl])
+            fetchData()
+        } )
     return (
         
         <div className='row'>
