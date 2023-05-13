@@ -9,7 +9,6 @@ function Banner() {
     const base_url = "https://image.tmdb.org/t/p/original/";
 
     
-    console.log(movie);
     useEffect(() => {
         const fetchData = async () => {
             const res = await instance.get(requests.fetchNetflixOriginals)
