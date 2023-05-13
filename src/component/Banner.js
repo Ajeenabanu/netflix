@@ -14,7 +14,7 @@ function Banner() {
             const res = await instance.get(requests.fetchNetflixOriginals)
             setmovie(res.data.results[Math.floor(Math.random()*res.data.results.length)]);
         }
-        fetchData()
+        fetchData(base_url)
     }, [])
     
     return (
