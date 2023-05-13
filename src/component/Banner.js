@@ -8,14 +8,10 @@ function Banner() {
     const [movie,setmovie]=useState({})
     const base_url = "https://image.tmdb.org/t/p/original/";
 
-    
     useEffect(() => {
-        const fetchData = async () => {
-            const res = await instance.get(requests.fetchNetflixOriginals)
-            setmovie(res.data.results[Math.floor(Math.random()*res.data.results.length)]);
-        }
-        fetchData(base_url)
-    }, [])
+        const res =  instance.get(requests.fetchNetflixOriginals)
+        setmovie(res.data.results[Math.floor(Math.random()*res.data.results.length)]);
+    },[base_url])
     
     return (
         <div className='banner'
